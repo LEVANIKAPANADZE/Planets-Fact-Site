@@ -5,10 +5,5 @@ export default function Planet() {
   const { planetName } = useParams();
   const planet = data.find((planet) => planet.name === planetName);
 
-  return (
-    <div>
-      {planet?.temperature}
-      {planet?.name}
-    </div>
-  );
+  return <div>{planet?.name}</div>;
 }
