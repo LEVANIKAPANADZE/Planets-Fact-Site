@@ -3,31 +3,6 @@ import data from "../data.json";
 import { useState } from "react";
 
 export default function Planet() {
-  interface Planet {
-    name: string;
-    overview: {
-      content: string;
-      source: string;
-    };
-    structure: {
-      content: string;
-      source: string;
-    };
-    geology: {
-      content: string;
-      source: string;
-    };
-    rotation: string;
-    revolution: string;
-    radius: string;
-    temperature: string;
-    images: {
-      planet: string;
-      internal: string;
-      geology: string;
-    };
-  }
-
   const { planetName } = useParams();
   const planet: Planet | undefined = data.find(
     (planet) => planet.name === planetName

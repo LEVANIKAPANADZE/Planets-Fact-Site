@@ -4,7 +4,6 @@ import Burger from "/assets/icon-hamburger.svg";
 
 export default function Header() {
   const [CheeseBurger, SetCheeseBurger] = useState(false);
-  let planet: any;
 
   const navigation: string[] = [
     "MERCURY",
@@ -33,7 +32,7 @@ export default function Header() {
           <nav>
             <ul>
               {navigation.map((Planet) => {
-                planet =
+                const planet =
                   Planet[0].toUpperCase() + Planet.slice(1).toLowerCase();
 
                 return (
