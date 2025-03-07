@@ -17,10 +17,10 @@ export default function Header() {
   ];
 
   return (
-    <header className="p-[234px]">
-      <div className="flex  justify-between  ">
+    <header className="px-[24px] py-[16px]">
+      <div className="flex  justify-between">
         {" "}
-        <h1>THE PLANETS</h1>
+        <h1 className="">THE PLANETS</h1>
         <img
           src={Burger}
           alt="CheeseBurger icon"

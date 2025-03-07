@@ -8,7 +8,6 @@ body {
   color: aliceblue;
   background-image: url("/assets/background-stars.svg");
   display: flex;
-  justify-content: center;
   flex-direction: column;
   font-family: "League Spartan", sans-serif;
   align-items: center;
