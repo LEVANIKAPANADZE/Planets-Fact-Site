@@ -22,3 +22,5 @@ interface Planet {
     geology: string;
   };
 }
+
+type planetInfo = "overview" | "geology" | "structure";
