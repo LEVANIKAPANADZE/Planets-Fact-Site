@@ -8,13 +8,19 @@ export default function Planet() {
   const planet = data.find((planet) => planet.name === planetName);
   const [selection, setSelection] = useState("OVERVIEW");
   const lilInfo = {
-    "ROTATION TIME": "16.08 hours",
-    "REVOLUTION TIME": "164.79 years",
-    RADIUS: "24,622 km",
-    "AVERAGE TEMP.": "-201°c",
+    "ROTATION TIME": `${planet?.rotation}`,
+    "REVOLUTION TIME": `${planet?.revolution}`,
+    RADIUS: `${planet?.radius}`,
+    "AVERAGE TEMP.": `${planet?.temperature}`,
   };
 
   const arr = ["OVERVIEW", "STRUCTURE", "GEOLOGY"];
+
+  const Tarr = [
+    { type: "OVERVIEW", num: "01" },
+    { type: "STRUCTURE", num: "02" },
+    { type: "GEOLOGY", num: "03" },
+  ];
 
   if (!planet) {
     return <h1>Planet not found. Redirecting to Earth...</h1>;
@@ -41,7 +47,6 @@ export default function Planet() {
           </span>
         ))}
       </div>
-
       <div>
         {selection === "GEOLOGY" ? (
           <div className="relative flex justify-center items-center mt-[64px]">
@@ -51,15 +56,12 @@ export default function Planet() {
               alt={planet.name}
               style={{ width: planet.size }}
             />
-
-            {selection === "GEOLOGY" && (
-              <img
-                className="absolute top-[65%] left-1/2 transform -translate-x-1/2 z-20"
-                src={planet.images.geology}
-                alt="Geology"
-                style={{ width: planet.Ssize }}
-              />
-            )}
+            <img
+              className="absolute top-[65%] left-1/2 transform -translate-x-1/2 z-20"
+              src={planet.images.geology}
+              alt="Geology"
+              style={{ width: planet.Ssize }}
+            />
           </div>
         ) : (
           <img
@@ -84,7 +86,17 @@ export default function Planet() {
         </p>
       </div>
 
-      <div className="text-white flex items center w-[139px] mt-[32px]">
+      <div className="hidden md:flex">
+        {Tarr.map((item) => (
+          <div key={item.type} onClick={() => setSelection(item.type)}>
+            <span>
+              {item.num} {item.type}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div className="text-white flex items-center w-[139px] mt-[32px]">
         <p className="mr-[7px] opacity-[50%] font-normal text-[12px] leading-[25px]">
           Source:
         </p>
@@ -103,26 +115,20 @@ export default function Planet() {
         </a>
       </div>
 
-      <div
-        className="text-white w-[327px] mt-[32px] 
-  flex flex-col gap-[8px] mb-[47px]"
-      >
-        {Object.entries(lilInfo).map(([label, value], index) => {
-          return (
-            <div
-              key={index}
-              className="flex justify-between items-center border border-white/20  
-        px-5 py-3 w-full"
-            >
-              <span className="font-bold text-[10px] leading-[16px] opacity-50">
-                {label}
-              </span>
-              <h2 className="text-[20px] leading-[100%] font-[Antonio]">
-                {value}
-              </h2>
-            </div>
-          );
-        })}
+      <div className="text-white w-[327px] mt-[32px] flex flex-col gap-[8px] mb-[47px]">
+        {Object.entries(lilInfo).map(([label, value], index) => (
+          <div
+            key={index}
+            className="flex justify-between items-center border border-white/20 px-5 py-3 w-full"
+          >
+            <span className="font-bold text-[10px] leading-[16px] opacity-50">
+              {label}
+            </span>
+            <h2 className="text-[20px] leading-[100%] font-[Antonio]">
+              {value}
+            </h2>
+          </div>
+        ))}
       </div>
     </div>
   );

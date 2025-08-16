@@ -18,20 +18,51 @@ export default function Header() {
   ];
 
   return (
-    <header className="relative z-50 px-[24px] py-[16px] border-b border-gray-400">
-      <div className="flex justify-between items-center">
-        <h1 className="font-[Antonio] font-normal text-[28px]">THE PLANETS</h1>
+    <header
+      className="relative z-50 px-[24px] py-[16px] border-b 
+      border-gray-400 md: py-[32px] 
+    border-none"
+    >
+      <div className="flex justify-center items-center relative">
+        <h1
+          className="font-[Antonio] font-normal text-[28px] 
+        md: tracking-[1px] leading-[100%]"
+        >
+          THE PLANETS
+        </h1>
         <img
           src={Burger}
           alt="CheeseBurger icon"
           onClick={() => SetCheeseBurger(!CheeseBurger)}
-          className="w-[24px] h-[17px]"
+          className="w-[24px] h-[17px] absolute right-0 md:hidden"
           style={CheeseBurger ? { filter: "brightness(0.5)" } : {}}
         />
       </div>
 
+      <nav className="hidden md:flex justify-center mt-[39px] gap-[33px]">
+        {navigation.map((PlanetName) => {
+          const formattedPlanet =
+            PlanetName[0].toUpperCase() + PlanetName.slice(1).toLowerCase();
+
+          return (
+            <Link
+              key={formattedPlanet}
+              className="font-[700] text-white 
+              hover:text-gray-400 transition 
+              md: text-[11px]"
+              to={formattedPlanet}
+            >
+              {PlanetName}
+            </Link>
+          );
+        })}
+      </nav>
+
       {CheeseBurger && (
-        <div className="opacity-[92%] absolute top-full left-0 w-full bg-[#070724] h-screen z-40 px-[24px] pt-[44px] pb-[67px]">
+        <div
+          className="opacity-[92%] absolute top-full left-0 w-full 
+      bg-[#070724] h-screen z-40 px-[24px] pt-[44px] pb-[67px] md:hidden"
+        >
           <nav>
             <ul>
               {navigation.map((PlanetName) => {
