@@ -20,7 +20,7 @@ export default function Header() {
   return (
     <header
       className="relative z-50 px-[24px] py-[16px] border-b 
-      border-gray-400 md: py-[32px] 
+      border-gray-400 md:py-[32px] 
     border-none"
     >
       <div className="flex justify-center items-center relative">
@@ -70,7 +70,7 @@ export default function Header() {
                   PlanetName[0].toUpperCase() +
                   PlanetName.slice(1).toLowerCase();
                 const planetInfo = data.find(
-                  (planet) => planet.name === formattedPlanet
+                  (planet) => planet.name === formattedPlanet,
                 );
 
                 return (
