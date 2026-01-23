@@ -23,10 +23,10 @@ export default function Header() {
       border-gray-400 md:py-[32px] 
     border-none"
     >
-      <div className="flex justify-center items-center relative">
+      <div className="flex justify-between items-center relative">
         <h1
           className="font-[Antonio] font-normal text-[28px] 
-        md: tracking-[1px] leading-[100%]"
+        md:tracking-[1px] leading-[100%]"
         >
           THE PLANETS
         </h1>
