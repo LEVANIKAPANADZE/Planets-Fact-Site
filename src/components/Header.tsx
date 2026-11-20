@@ -22,7 +22,7 @@ export default function Header() {
   const format = (name: string) => name[0] + name.slice(1).toLowerCase();
 
   return (
-    <header className="relative z-50 border-b border-white/20 px-[24px] py-[16px] text-white md:px-[40px] md:pb-0 md:pt-[32px] lg:px-[32px] lg:py-0">
+    <header className="relative z-50 border-b border-white/20 px-[24px] py-[16px] text-white md:px-[40px] md:pb-0 md:pt-[32px] lg:px-[32px] lg:py-0 lg:mb-[50px]">
       <div className="flex items-center justify-between md:flex-col md:gap-[39px] lg:flex-row lg:gap-0">
         <h1 className="font-[Antonio] text-[28px] font-normal uppercase leading-[100%] tracking-[-1px] lg:py-[22px]">
           THE PLANETS

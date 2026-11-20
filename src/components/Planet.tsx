@@ -30,7 +30,12 @@ export default function Planet() {
 
   const tabs = [
     { type: "OVERVIEW", short: "OVERVIEW", full: "OVERVIEW", num: "01" },
-    { type: "STRUCTURE", short: "STRUCTURE", full: "INTERNAL STRUCTURE", num: "02" },
+    {
+      type: "STRUCTURE",
+      short: "STRUCTURE",
+      full: "INTERNAL STRUCTURE",
+      num: "02",
+    },
     { type: "GEOLOGY", short: "SURFACE", full: "SURFACE GEOLOGY", num: "03" },
   ];
 
@@ -52,7 +57,7 @@ export default function Planet() {
           <button
             key={tab.type}
             onClick={() => setSelection(tab.type)}
-            className={`flex-1 pt-[20px] pb-[17px] text-[9px] font-bold tracking-[2px] border-b-4 transition-opacity ${
+            className={`flex-1 cursor-pointer pt-[20px] pb-[17px] text-[9px] font-bold tracking-[2px] border-b-4 transition-opacity ${
               selection === tab.type ? "opacity-100" : "opacity-50"
             }`}
             style={{
@@ -100,7 +105,7 @@ export default function Planet() {
             </div>
           </div>
 
-          <div className="w-full md:flex md:items-center md:justify-between md:gap-[69px] lg:w-[350px] lg:shrink-0 lg:flex-col lg:items-start lg:gap-[39px]">
+          <div className="w-full md:flex md:items-center md:justify-between md:gap-[69px] lg:w-[350px] lg:shrink-0 lg:flex-col lg:items-start lg:gap-[56px]">
             <div className="flex flex-col items-center text-center md:max-w-[339px] md:items-start md:text-left lg:max-w-[350px]">
               <h1 className="font-[Antonio] text-[40px] font-normal uppercase leading-[100%] md:text-[48px] lg:text-[80px]">
                 {planet.name}
@@ -117,19 +122,23 @@ export default function Planet() {
                   className="flex items-center font-bold underline opacity-50 transition-opacity hover:opacity-100"
                 >
                   Wikipedia
-                  <img className="ml-[4px] h-[12px] w-[12px]" src={Wiki} alt="" />
+                  <img
+                    className="ml-[4px] h-[12px] w-[12px]"
+                    src={Wiki}
+                    alt=""
+                  />
                 </a>
               </div>
             </div>
 
-            <div className="hidden shrink-0 flex-col gap-[16px] md:flex md:w-[281px] lg:w-full">
+            <div className="hidden shrink-0 flex-col gap-[16px] md:flex md:w-[281px] lg:w-full lg:gap-[24px]">
               {tabs.map((tab) => {
                 const active = selection === tab.type;
                 return (
                   <button
                     key={tab.type}
                     onClick={() => setSelection(tab.type)}
-                    className={`flex items-center gap-[17px] border px-[20px] py-[8px] text-left text-[9px] font-bold tracking-[2.6px] transition-colors lg:gap-[28px] lg:px-[28px] lg:py-[12px] lg:text-[12px] ${
+                    className={`flex cursor-pointer items-center gap-[17px] border px-[20px] py-[8px] text-left text-[9px] font-bold tracking-[2.6px] transition-colors lg:gap-[28px] lg:px-[28px] lg:py-[16px] lg:text-[12px] ${
                       active
                         ? "border-transparent"
                         : "border-white/20 hover:bg-white/15"
@@ -145,11 +154,11 @@ export default function Planet() {
           </div>
         </div>
 
-        <div className="mt-[28px] mb-[47px] flex flex-col gap-[8px] md:mt-[27px] md:grid md:grid-cols-4 md:gap-[11px] lg:mt-[40px] lg:gap-[30px]">
+        <div className="mt-[28px] mb-[47px] flex flex-col gap-[8px] md:mt-[27px] md:grid md:grid-cols-4 md:gap-[11px] lg:mt-[90px] lg:gap-[40px]">
           {Object.entries(stats).map(([label, value]) => (
             <div
               key={label}
-              className="flex items-center justify-between border border-white/15 bg-white/5 px-[24px] py-[9px] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[color:var(--c)] md:flex-col md:items-start md:justify-center md:gap-[6px] md:px-[15px] md:py-[16px] lg:gap-[8px] lg:px-[23px] lg:py-[20px]"
+              className="flex items-center justify-between border border-white/15 bg-white/5 px-[24px] py-[9px] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[color:var(--c)] md:flex-col md:items-start md:justify-center md:gap-[6px] md:px-[15px] md:py-[16px] lg:gap-[8px] lg:px-[23px] lg:py-[24px]"
             >
               <span className="text-[8px] font-bold uppercase leading-[16px] tracking-[1px] opacity-50 lg:text-[11px] lg:leading-[25px]">
                 {label}
