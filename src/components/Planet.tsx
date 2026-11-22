@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
-import data from "../data.json";
+import data from "../../lib/data.json";
 import Wiki from "/assets/icon-source.svg";
 
 type Section = "overview" | "structure" | "geology";

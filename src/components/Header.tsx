@@ -3,7 +3,7 @@ import { useState } from "react";
 import type { CSSProperties } from "react";
 import Burger from "/assets/icon-hamburger.svg";
 import arrow from "/assets/icon-chevron.svg";
-import data from "../data.json";
+import data from "../../lib/data.json";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
