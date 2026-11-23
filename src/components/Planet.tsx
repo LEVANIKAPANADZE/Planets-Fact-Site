@@ -2,14 +2,20 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
 import data from "../../lib/data.json";
+import type {
+  Planet,
+  PlanetInfo,
+  PlanetSelection,
+  PlanetTab,
+} from "../../lib/types";
 import Wiki from "/assets/icon-source.svg";
-
-type Section = "overview" | "structure" | "geology";
 
 export default function Planet() {
   const { planetName } = useParams();
-  const planet = data.find((p) => p.name === planetName);
-  const [selection, setSelection] = useState("OVERVIEW");
+  const planets = data as Planet[];
+  const planet = planets.find((p) => p.name === planetName);
+  const [selection, setSelection] =
+    useState<PlanetSelection>("OVERVIEW");
 
   useEffect(() => {
     setSelection("OVERVIEW");
@@ -19,7 +25,7 @@ export default function Planet() {
     return <h1>Planet not found. Redirecting to Earth...</h1>;
   }
 
-  const current = planet[selection.toLowerCase() as Section];
+  const current = planet[selection.toLowerCase() as PlanetInfo];
   const viewKey = `${planet.name}-${selection}`;
 
   const stats = {
@@ -29,7 +35,7 @@ export default function Planet() {
     "AVERAGE TEMP.": planet.temperature,
   };
 
-  const tabs = [
+  const tabs: PlanetTab[] = [
     { type: "OVERVIEW", short: "OVERVIEW", full: "OVERVIEW", num: "01" },
     {
       type: "STRUCTURE",
