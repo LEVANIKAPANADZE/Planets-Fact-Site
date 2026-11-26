@@ -14,8 +14,7 @@ export default function Planet() {
   const { planetName } = useParams();
   const planets = data as Planet[];
   const planet = planets.find((p) => p.name === planetName);
-  const [selection, setSelection] =
-    useState<PlanetSelection>("OVERVIEW");
+  const [selection, setSelection] = useState<PlanetSelection>("OVERVIEW");
 
   useEffect(() => {
     setSelection("OVERVIEW");
@@ -190,7 +189,7 @@ export default function Planet() {
               <span className="text-[8px] font-bold uppercase leading-[16px] tracking-[1px] opacity-50 lg:text-[11px] lg:leading-[25px]">
                 {label}
               </span>
-              <h2 className="font-[Antonio] text-[20px] uppercase leading-[100%] md:text-[24px] lg:text-[40px]">
+              <h2 className="font-[Antonio] text-[20px] uppercase leading-[100%] md:text-[24.5px] lg:text-[40px]">
                 {value}
               </h2>
             </div>
